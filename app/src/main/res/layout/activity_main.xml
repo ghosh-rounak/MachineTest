@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="mainViewModel"
+            type="com.rounak.machinetest.ui.MainViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/greenThemeColor"
+        tools:context="com.rounak.machinetest.ui.MainActivity">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/topHeader"
+            android:background="@color/greenThemeColor"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:paddingBottom="@dimen/_20sdp"
+            >
+
+            <ImageView
+                android:id="@+id/backImgBtn"
+                android:layout_width="@dimen/_30sdp"
+                android:layout_height="@dimen/_30sdp"
+                android:padding="@dimen/_6sdp"
+                android:contentDescription="@string/back_arrow_image"
+                android:src="@drawable/back_arrow"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginTop="@dimen/_16sdp"
+                android:layout_marginStart="@dimen/_16sdp"
+                />
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/profileImgContainer"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="@dimen/_18sdp"
+                app:rippleColor="@android:color/transparent"
+                android:layout_width="@dimen/_80sdp"
+                android:layout_height="@dimen/_80sdp"
+                app:cardCornerRadius="@dimen/_40sdp"
+                app:cardElevation="0dp"
+                >
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:contentDescription="@string/profile_image"
+                    android:src="@drawable/profile"
+                    />
+            </com.google.android.material.card.MaterialCardView>
+
+            <TextView
+                android:id="@+id/profileNameTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/profileImgContainer"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:text="@string/profile_name_value"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/_30ssp"
+                android:layout_marginTop="@dimen/_1sdp"
+                />
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/connectedContainer"
+                android:layout_marginTop="@dimen/_12sdp"
+                app:cardCornerRadius="@dimen/_14sdp"
+                app:rippleColor="@android:color/transparent"
+                app:cardElevation="0dp"
+                app:cardBackgroundColor="@android:color/white"
+                app:layout_constraintTop_toBottomOf="@+id/profileNameTV"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:background="@android:color/white"
+                    android:paddingTop="@dimen/_5sdp"
+                    android:paddingBottom="@dimen/_5sdp"
+                    android:paddingStart="@dimen/_2sdp"
+                    android:paddingEnd="@dimen/_2sdp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/tickImgContainer"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:rippleColor="@android:color/transparent"
+                        android:layout_width="@dimen/_18sdp"
+                        android:layout_height="@dimen/_18sdp"
+                        android:layout_marginEnd="@dimen/_12sdp"
+                        app:cardCornerRadius="@dimen/_9sdp"
+                        app:cardElevation="0dp"
+                        app:cardBackgroundColor="@color/greenThemeColor"
+                        >
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:contentDescription="@string/tick_image"
+                            android:src="@drawable/tick"
+                            app:tint="@android:color/white"
+                            />
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <TextView
+                        android:id="@+id/connectedTV"
+                        android:gravity="top"
+                        android:text="@string/connected"
+                        android:textStyle="bold"
+                        android:textSize="@dimen/_12ssp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/tickImgContainer"
+                        app:layout_constraintStart_toStartOf="parent"
+                        android:layout_marginEnd="@dimen/_10sdp"
+                        android:layout_marginStart="@dimen/_12sdp"
+                        />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <!--Tab Layout -->
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tabLayout"
+            android:contentDescription="@string/swipeable_layout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/topHeader"
+            app:tabMode="fixed"
+            app:tabBackground="@color/greenThemeColor"
+            app:tabSelectedTextColor="#FFFFF7"
+            app:tabTextColor="#E1D9D1"
+            app:tabIndicatorColor="#FFFFF7"
+            app:tabRippleColor="@android:color/transparent"
+            app:tabTextAppearance="@android:style/TextAppearance.Widget.TabWidget"
+            app:tabIndicatorHeight="3dp"
+            app:tabIndicatorFullWidth="true"
+            android:layout_marginStart="@dimen/_20sdp"
+            android:layout_marginEnd="@dimen/_20sdp"
+            />
+
+        <!-- View Pager2-->
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/viewPager"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tabLayout" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

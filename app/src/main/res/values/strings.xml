@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">MachineTest</string>
+    <string name="swipeable_layout">swipeable layout</string>
+    <string name="app_image">app image</string>
+    <string name="search">Search</string>
+    <string name="back_arrow_image">back arrow image</string>
+    <string name="profile_image">profile image</string>
+    <string name="profile_name_value">Suvojit</string>
+    <string name="tick_image">tick image</string>
+    <string name="connected">Connected</string>
+</resources>
