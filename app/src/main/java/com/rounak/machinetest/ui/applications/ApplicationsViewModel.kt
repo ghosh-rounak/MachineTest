@@ -127,10 +127,7 @@ class ApplicationsViewModel @Inject constructor(
                  appData
             }
         }
-
         allAppList = modifiedAppList
-
-
         updateUIAppList(
             appList = allAppList,
             scrollToTop = false
@@ -138,43 +135,14 @@ class ApplicationsViewModel @Inject constructor(
     }
 
     private fun updateAppListOnSearch(searchQuery: String){
-        //searchQuery.isBlank()
         if(searchQuery.isEmpty()){
-            /*
-            serverAppList.forEachIndexed { index: Int, sAppData: AppData ->
-                allAppList.find { a: AppData ->
-                    a.id == sAppData.id
-                }?.let { updatedAppDataItem ->
-                    serverAppList[index] = updatedAppDataItem
-                }
-            }
-            */
-
-
-            /*
-            for(i in 0 until serverAppList.size){
-                val originalApp = serverAppList[i]
-                val updatedItem = allAppList.find { a: AppData ->
-                    a.id == originalApp.id
-                }
-                updatedItem?.let { updated ->
-                    serverAppList[i] = updated
-                    Log.d("ClearTest", "i: $i")
-                }
-            }
-            */
-
-
-            //Log.d("ClearTest", "serverAppList: $serverAppList")
-            //Log.d("ClearTest", "allAppList: $allAppList")
-
             allAppList = serverAppList.map { it }
             updateUIAppList(
                 appList = allAppList,
                 scrollToTop = true
             )
         }else{
-            val modifiedAppList: List<AppData> = allAppList.filter { appData: AppData ->
+            val modifiedAppList: List<AppData> = serverAppList.filter { appData: AppData ->
                 appData.appName.startsWith(searchQuery,ignoreCase = true)
             }
             allAppList = modifiedAppList

@@ -19,6 +19,7 @@
 
         <activity
             android:name="com.rounak.machinetest.ui.MainActivity"
+            android:screenOrientation="portrait"
             android:exported="true"
             android:windowSoftInputMode="stateHidden"
             >
